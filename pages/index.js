@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import {
   LinkedMarkdownViewer,
   LinkedMarkdownEditor,
@@ -10,7 +9,7 @@ import React, { useState } from 'react'
 
 export default function Home() {
   const startFileURI =
-    'https://raw.githubusercontent.com/linkedmd/linkedmd/main/parser/examples/DomainAgreement.linked.md'
+    'https://raw.githubusercontent.com/linkedmd/website/main/public/LinkedMarkdown.linked.md'
 
   const [edit, setEdit] = useState(false)
   const [fileURI, setFileURI] = useState(startFileURI)

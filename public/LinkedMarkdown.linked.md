@@ -21,5 +21,3 @@ The main intended use is writing legal agreements and law. Linked Markdown provi
 - Quickly create sound agreements by importing existing definitions from other documents. An open-source approach to law
 - Clearly define data at the beginning of a document, avoiding subjective definitions and loose ends
 - Reference such data in the document and know at a glance the value of the references
-
-  `
