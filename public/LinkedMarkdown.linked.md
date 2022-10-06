@@ -2,7 +2,7 @@ Markdown
 : Markdown is a lightweight markup language for creating formatted text using a plain-text editor. Read more https://daringfireball.net/projects/markdown/syntax.
 
 Linked Markdown
-: A superset of [Markdown](https://daringfireball.net/projects/markdown/syntax) that provides support for declaring variables, referencing them and importing them from remote sources.
+: A superset of Markdown that provides support for declaring variables, referencing them and importing them from remote sources.
 
 ---
 

@@ -4,7 +4,7 @@ import {
   LinkedMarkdownViewer,
   LinkedMarkdownEditor,
 } from '@linkedmd/components'
-import '@linkedmd/components/dist/index.css'
+
 import React, { useState } from 'react'
 
 export default function Home() {
@@ -18,30 +18,34 @@ export default function Home() {
     <>
       <div style={{ maxWidth: '768px', margin: 'auto' }}>
         <h1>⍈</h1>
-        <div></div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div>Linked Markdown</div>
+
+          <div style={{ textAlign: 'right' }}>
+            <a
+              onClick={() => {
+                setEdit(false)
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              View
+            </a>{' '}
+            |{' '}
+            <a
+              onClick={() => {
+                setEdit(true)
+              }}
+              style={{ cursor: 'pointer' }}
+            >
+              Edit
+            </a>
+          </div>
+        </div>
       </div>
-      <h3 style={{ textAlign: 'center' }}>
-        <a
-          onClick={() => {
-            setEdit(false)
-          }}
-          style={{ cursor: 'pointer' }}
-        >
-          View
-        </a>{' '}
-        |{' '}
-        <a
-          onClick={() => {
-            setEdit(true)
-          }}
-          style={{ cursor: 'pointer' }}
-        >
-          Edit
-        </a>
-      </h3>
+
       {edit ? (
-        <div style={{ maxWidth: '1280px', margin: 'auto' }}>
-          <LinkedMarkdownEditor fileURI={startFileURI} />
+        <div style={{ margin: 'auto' }}>
+          <LinkedMarkdownEditor fileURI={fileURI} />
         </div>
       ) : (
         <div style={{ maxWidth: '768px', margin: 'auto' }}>
