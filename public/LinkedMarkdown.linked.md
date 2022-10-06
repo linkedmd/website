@@ -4,6 +4,8 @@ Markdown
 Linked Markdown
 : A superset of [Markdown](https://daringfireball.net/projects/markdown/syntax) that provides support for declaring variables, referencing them and importing them from remote sources.
 
+---
+
 # Linked Markdown
 
 A Linked Markdown document has two sections:
