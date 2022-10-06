@@ -51,9 +51,7 @@ export default function Home() {
         <div style={{ maxWidth: '768px', margin: 'auto' }}>
           <LinkedMarkdownViewer
             fileURI={fileURI}
-            onFileURIChange={(newFileURI) => {
-              setFileURI(newFileURI)
-            }}
+            onFileURIChange={(newFileURI) => setFileURI(newFileURI)}
           />
         </div>
       )}
