@@ -16,6 +16,14 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Linked Markdown</title>
+        <meta
+          name="description"
+          content="A superset of Markdown that provides support for declaring variables, referencing them and importing them from remote sources."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div style={{ maxWidth: '768px', margin: 'auto' }}>
         <h1>⍈</h1>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
