@@ -13,6 +13,12 @@ A Linked Markdown document has two sections:
 - A first section with definitions, both local and remotely imported ones.
 - A second section with its content, in Markdown.
 
+[[toc]]
+
+::: warning
+_here be dragons_
+:::
+
 ## 1. Uses
 
 The main intended use is writing legal agreements and law. Linked Markdown provides powerful features for such use case, because it allows to:
@@ -95,6 +101,10 @@ MIT
 
 Linked Markdown is a building block that enables many things, such as an open source legal system[^1] to emerge.
 Since Linked Markdown documents can import other documents, it's possible to track dependencies and even build a website to track them and showcase popular documents, similar to what NPM[^2] does.
+A first take on doing so can be found at https://repo.linked.md. You can log in with any Web3-compatible wallet[^3]
 
 [^1]: Building an open source legal system https://mirror.xyz/writings.nation3.eth/IkI3u7YEI0GYEK5cz2WqU6kno-YDEik1K0WT--uHzfw
 [^2]: Node Package Manager https://npmjs.org
+[^3]: Understanding Web3 https://learn.rainbow.me/understanding-web3
+
+## 4. Engaging
