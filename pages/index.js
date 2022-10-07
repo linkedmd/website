@@ -1,15 +1,20 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { Suspense, useState } from 'react'
 
-const LinkedMarkdownViewer = dynamic(() => import('@linkedmd/components'), {
-  ssr: false,
-})
-const LinkedMarkdownEditor = dynamic(() => import('@linkedmd/components'), {
-  ssr: false,
-})
-
-import React, { useState } from 'react'
+const LinkedMarkdownViewer = dynamic(
+  () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownViewer),
+  {
+    ssr: false,
+  }
+)
+const LinkedMarkdownEditor = dynamic(
+  () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownEditor),
+  {
+    ssr: false,
+  }
+)
 
 export default function Home() {
   const startFileURI =
@@ -54,7 +59,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       {edit ? (
         <div style={{ margin: 'auto' }}>
           <LinkedMarkdownEditor fileURI={fileURI} />
