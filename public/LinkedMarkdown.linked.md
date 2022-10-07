@@ -4,6 +4,9 @@ Markdown
 Linked Markdown
 : A superset of Markdown that provides support for declaring variables, referencing them and importing them from remote sources.
 
+Nation3
+: An online-first, zero-tax nation with its own jurisdiction, court and system of law. Read more https://nation3.org
+
 ---
 
 # Linked Markdown
@@ -88,6 +91,13 @@ MIT
 :include[MIT]{"Year"="2022" "Copyright holder"="MyDAO"}
 ```
 
+### Other features
+
+- **Numbering auto-magically works**: No need to manually keep track of section 1.2.3.b or anything like that. Linked Markdown detects headings and automatically numbers them.
+- **Automatic heading linking**: Linked Markdown also creates an anchor for each heading, so they are easier to link.
+- **Table of contents**: Just insert `[[toc]]`and it will render a table of contents.
+- **Footnotes**: Linked Markdown supports footnotes.
+
 ## Publishing documents
 
 Linked Markdown is a building block that enables many things, such as an open source legal system[^1] to emerge.
@@ -106,10 +116,9 @@ That way the repo will be able to keep proper track of the dependencies.
 
 ## Engaging
 
-Linked Markdown is built with love in Nation3[^5], an online-first, zero-tax nation with its own jurisdiction, court and system of law. You can [join our Discord](https://n3.gg/discord) to engage, contribute and ask questions about Linked Markdown better.
+Linked Markdown is built with love by Nation3. You can [join our Discord](https://n3.gg/discord) to engage, contribute and ask questions about Linked Markdown better. We are only getting started!
 
 [^1]: Building an open source legal system https://mirror.xyz/writings.nation3.eth/IkI3u7YEI0GYEK5cz2WqU6kno-YDEik1K0WT--uHzfw
 [^2]: Node Package Manager https://npmjs.org
 [^3]: Understanding Web3 https://learn.rainbow.me/understanding-web3
 [^4]: IPFS https://ipfs.org
-[^5]: Nation3 https://nation3.org
