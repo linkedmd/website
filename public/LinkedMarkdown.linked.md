@@ -8,13 +8,6 @@ Linked Markdown
 
 # Linked Markdown
 
-A Linked Markdown document has two sections:
-
-- A first section with definitions, both local and remotely imported ones.
-- A second section with its content, in Markdown.
-
----
-
 [[toc]]
 
 ## Uses
