@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import {
-  LinkedMarkdownViewer,
-  LinkedMarkdownEditor,
-} from '@linkedmd/components'
+import dynamic from 'next/dynamic'
+
+const LinkedMarkdownViewer = dynamic(() => import('@linkedmd/components'), {
+  ssr: false,
+})
+const LinkedMarkdownEditor = dynamic(() => import('@linkedmd/components'), {
+  ssr: false,
+})
 
 import React, { useState } from 'react'
 
