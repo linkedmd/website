@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 
 const LinkedMarkdownViewer = dynamic(
   () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownViewer),
