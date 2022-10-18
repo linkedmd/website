@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
 const LinkedMarkdownViewer = dynamic(
   () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownViewer),
@@ -10,11 +11,7 @@ const LinkedMarkdownViewer = dynamic(
 
 export default function View() {
   const router = useRouter()
-  const { url } = router.query
+  const { u } = router.query
 
-  return (
-    <>
-      <LinkedMarkdownViewer fileURI={url} />
-    </>
-  )
+  return <>{u && <LinkedMarkdownViewer fileURI={u} />}</>
 }
