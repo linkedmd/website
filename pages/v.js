@@ -13,5 +13,13 @@ export default function View() {
   const router = useRouter()
   const { u } = router.query
 
-  return <>{u && <LinkedMarkdownViewer fileURI={u} />}</>
+  return (
+    <>
+      {u && (
+        <div style={{ maxWidth: '768px', margin: 'auto' }}>
+          <LinkedMarkdownViewer fileURI={u} />
+        </div>
+      )}
+    </>
+  )
 }
