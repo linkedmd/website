@@ -56,10 +56,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@linkedmd/components@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@linkedmd/components/-/components-0.2.0.tgz#3847e6febcede22fdabd0f509ec12b93de9f5a88"
-  integrity sha512-RH+jtHju62yr77Z4mVzlRqIoggXjAklhhAVhFGblz0b6hmxgiXxE6liYr/gR/lcZ83DEr+jVkoXAXvQCKRKsrw==
+"@linkedmd/components@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@linkedmd/components/-/components-0.2.2.tgz#e33ed67a041ec4e07c0ff2ec650935af4163e199"
+  integrity sha512-e77QEd7I4n5Ja9+KTU4+LZZY0NHzaoSmFyp5FG74p+3sFPxBxJJXV1fNh8blopNnfs17YMrJZa4DouH6Aoeb0A==
 
 "@next/env@12.3.1":
   version "12.3.1"
