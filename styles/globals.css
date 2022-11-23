@@ -38,3 +38,13 @@ h5 {
 h6 {
   font-size: 0.96rem;
 }
+
+@media print {
+  body {
+    display: block;
+    padding: 0;
+  }
+  main {
+    padding-top: 0;
+  }
+}

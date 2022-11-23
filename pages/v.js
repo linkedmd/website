@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+import Script from 'next/script'
 
 const LinkedMarkdownViewer = dynamic(
   () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownViewer),
@@ -14,12 +15,13 @@ export default function View() {
   const { u } = router.query
 
   return (
-    <>
+    <main>
       {u && (
-        <div style={{ maxWidth: '768px', margin: 'auto' }}>
+        <div>
+          <Script src="https://hypothes.is/embed.js" />
           <LinkedMarkdownViewer fileURI={u} />
         </div>
       )}
-    </>
+    </main>
   )
 }
