@@ -18,7 +18,7 @@ export default function View() {
     <main>
       {u && (
         <div>
-          <Script src="https://hypothes.is/embed.js" />
+          {/* <Script src="https://hypothes.is/embed.js" /> */}
           <LinkedMarkdownViewer
             fileURI={u}
             onFileURIChange={() => {
