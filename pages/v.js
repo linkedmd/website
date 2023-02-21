@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { useEffect, useState, useRef } from 'react'
 import Script from 'next/script'
+import keccak256 from 'keccak256'
 
 const LinkedMarkdownViewer = dynamic(
   () => import('@linkedmd/components').then((mod) => mod.LinkedMarkdownViewer),
@@ -19,12 +20,14 @@ export default function View() {
   const [file, setFile] = useState(null)
   const [dragging, setDragging] = useState(false)
   const [fileURL, setFileURL] = useState(u)
+  const [fileHash, setFileHash] = useState(null)
 
   useEffect(() => {
     if (file) {
       const reader = new FileReader()
       reader.onload = (e) => {
         const blob = new Blob([e.target.result], { type: 'text/markdown' })
+        setFileHash(keccak256(e.target.result).toString('hex'))
         setFileURL(URL.createObjectURL(blob))
       }
       reader.readAsText(file)
@@ -98,6 +101,12 @@ export default function View() {
               if (h1) document.title = h1.innerText
             }}
           />
+          {file && (
+            <>
+              <hr />
+              <i>File hash (Keccak256): {fileHash}</i>
+            </>
+          )}
         </div>
       )}
     </main>
