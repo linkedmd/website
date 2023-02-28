@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 import Script from 'next/script'
 import keccak256 from 'keccak256'
 
@@ -16,55 +17,24 @@ export default function View() {
   const { u } = router.query
   useEffect(() => setFileURL(u), [u])
 
-  const drag = useRef(null)
-  const [file, setFile] = useState(null)
-  const [dragging, setDragging] = useState(false)
   const [fileURL, setFileURL] = useState(u)
   const [fileHash, setFileHash] = useState(null)
 
-  useEffect(() => {
-    if (file) {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const blob = new Blob([e.target.result], { type: 'text/markdown' })
-        setFileHash(keccak256(e.target.result).toString('hex'))
-        setFileURL(URL.createObjectURL(blob))
-      }
-      reader.readAsText(file)
+  const onDrop = useCallback((acceptedFiles) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const blob = new Blob([reader.result], { type: 'text/markdown' })
+      setFileHash(keccak256(reader.result).toString('hex'))
+      setFileURL(URL.createObjectURL(blob))
     }
-  }, [file])
+    reader.readAsText(acceptedFiles[0])
+  }, [])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <main
-      ref={drag}
-      onDrop={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        setFile(e.dataTransfer.files[0])
-        setDragging(false)
-      }}
-      onDragOver={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-      }}
-      onDragEnter={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        if (e.target !== drag.current) {
-          setDragging(true)
-        }
-      }}
-      onDragLeave={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        if (
-          !e.currentTarget.contains(e.relatedTarget) ||
-          e.target === drag.current
-        )
-          setDragging(false)
-      }}
-    >
-      {dragging && (
+    <main {...getRootProps()}>
+      <input {...getInputProps()} />
+      {isDragActive && (
         <div
           style={{
             position: 'fixed',
@@ -82,6 +52,7 @@ export default function View() {
           <div
             style={{
               backgroundColor: 'white',
+              color: 'black',
               padding: '1rem',
               borderRadius: '0.5rem',
               textAlign: 'center',
@@ -93,7 +64,7 @@ export default function View() {
       )}
       {fileURL && (
         <div>
-          {!file && <Script src="https://hypothes.is/embed.js" />}
+          {!fileHash && <Script src="https://hypothes.is/embed.js" />}
           <LinkedMarkdownViewer
             fileURI={fileURL}
             onFileURIChange={() => {
@@ -101,7 +72,7 @@ export default function View() {
               if (h1) document.title = h1.innerText
             }}
           />
-          {file && (
+          {fileHash && (
             <>
               <hr />
               <i>File hash (Keccak256): {fileHash}</i>
